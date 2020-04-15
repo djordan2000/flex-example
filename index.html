@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Title</title>
+
+<style>
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  background-color: #0A0A2A;
+  font-family: Helvetica, sans-serif;
+  padding-bottom: 100px;
+}
+
+h2, h3 {
+  margin: 0 0 .75em 0;
+}
+
+/* first example */
+.input-container {
+  max-width: 550px;
+  margin: 20px auto 0 auto;
+  padding: 30px;
+  background-color: #FFF;
+}
+/* To initiate a flexbox layout, there must be a container/wrapper with the value of display:flex that will permit children to employ flex values */
+.form-row {
+  padding: 10px 0;
+  display: flex;
+}
+
+.form-row label {
+  padding-right: 10px;
+}
+
+/* flex 1 is the baseline value to evenly distribute the horizontal space taken up by elements. Flex values specify how much the item will grow relative to the rest of the flexible items */
+.form-row input {
+  flex: 1;
+}
+
+/* second example */
+.column-layout {
+  max-width: 1300px;
+  background-color: #FFF;
+  margin: 40px auto 0 auto;
+  line-height: 1.65;
+  padding: 20px 50px;
+  display: flex;
+}
+
+.main-column {
+  flex: 3;
+  order: 2;
+  margin-right: 1em;
+  border-right: 3px ridge;
+  padding-right: 12px;
+  border-left: 3px ridge;
+  padding-left: 12px;
+}
+
+.sidebar-one {
+  flex: 1;
+  order: 1;
+  margin-right: 1em;
+  
+}
+
+.sidebar-two {
+  flex: 1;
+  order: 3;
+}
+
+/* third example */
+.call-outs-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+}
+
+.call-out {
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  flex-basis: 30%;
+}
+
+@media (min-width: 900px) {
+  .call-outs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.call-out:nth-child(1) {background-color: #c0dbe2;}
+.call-out:nth-child(2) {background-color: #cdf1c3;}
+.call-out:nth-child(3) {background-color: #ccb9da;}
+
+/* fourth example */
+.fixed-size-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+  background-color: #FFF;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.fixed-size {
+  width: 150px;
+  height: 100px;
+  background-color: #990b47;
+  color: #FFF;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+/* fifth example. Flexbox centers elements very simply*/
+.banner {
+  display: flex; /*======= container for the centered element =======*/
+  height: 400px;
+  max-width: 700px;
+  margin: 40px auto 40px auto;
+  background: linear-gradient(40deg, #6F2717,#EE8F40,#EE8F40,#6F2717);
+  background-size: 500% 200%;
+  animation: bannerbg linear infinite 8s;
+  animation-direction: alternate;
+}
+
+@keyframes bannerbg{
+    0% {background-position: 0%}
+    100% {background-position: 100%}
+}
+
+
+.center-me {
+  margin: auto; /*======= margin auto within a flex container is all that's necessary to center an element vertically and horizontally =======*/
+  color: #FFF;
+  font-size: 50px;
+}
+
+/* sixth example */
+.equal-height-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  flex: 1;  
+}
+
+.second {
+  background-color: yellow;
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* flexbox by default has a flex-direction of row, which forces its child elements into a columned layout within a row. Here we override this by giving the container itself a column quality that will enable child elements to take up rows of horizontal space, sort of like block elements */
+}
+
+.second-a {
+  background-color: #c0dbe2;
+  flex: 1;
+}
+
+.second-b {
+  background-color: #cdf1c3;
+  flex: 1;
+}
+
+/* An example of transform properties */
+
+.transform-example {
+  width: 100vw;
+  height: 100vh;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  transition-duration: 2s;
+  transition-property: width;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* transition-delay can allow for a more naturally transitioning appearance
+  transition-delay: .7s;
+  */
+}
+
+.transform-example:hover .box {
+  width: 600px;
+}
+
+.one {
+  background: #07BEB8;
+  transition-timing-function: linear;
+}
+
+.two {
+  background: #3DCCC7;
+  transition-timing-function: ease-in;
+}
+
+.three {
+  background: #9CEAEF;
+  transition-timing-function: ease-out;
+}
+
+.four {
+  background: #B1F8F2;
+  transition-timing-function: ease-in-out;
+ }
+ 
+ .five {
+ background: teal;
+  transition-timing-function:cubic-bezier(.64,-0.74,0,1);
+  /*To find the best cubic-bezier value for a project, use the element inspector to click on the icon next to the transition-timing-function to view alternatives to try. Copy/paste the cubic-bezier value to the CSS*/
+}
+
+/*
+  transition-delay: 0;
+  transition-duration: 1s;
+  transition-property: background;
+  transition-timing-function: cubic-bezier(.77, 0, .18, 1); To find the best cubic-bezier value for a project, use the element inspector to click on the icon next to the transition-timing-function to view alternatives to try. Copy/paste the cubic-bezier value to the CSS
+*/
+
+/* breathing icons */
+
+.breatheSvg {
+	content: url('Chakra2.svg');
+	width: 120px;
+	height: auto;
+	animation: chakra 5s infinite;
+	margin: 0 auto;
+}
+
+@keyframes chakra{
+0% {
+    transform: scale(1.2);
+ }
+50% {
+    transform: scale(1);
+ }
+100% {
+    transform: scale(1.2);
+ }
+}
+
+</style>
+
+<body>
+<!-- first example -->
+<div class="input-container">
+
+<div class="breatheSvg">
+
+</div>
+  
+  <form action="">
+    <div class="form-row">
+      <label for="name">Name:</label>
+      <input type="text" id="name">
+    </div>
+    <div class="form-row">
+      <label for="favColor">Favorite Color:</label>
+      <input type="text" id="favColor">
+    </div>
+  </form>
+</div>
+
+<!-- second example -->
+<div class="column-layout">
+  <div class="main-column">
+    <h2>Main Column</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque. Voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque.</p>
+  </div>
+
+  <div class="sidebar-one">
+    <h3>Sidebar One</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi tenetur sint dignissimos nulla, blanditiis nesciunt.</p>
+  </div>
+
+  <div class="sidebar-two">
+    <h3>Sidebar Two</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi tenetur sint dignissimos nulla, blanditiis nesciunt.</p>
+  </div>
+</div>
+
+<!-- third example -->
+<div class="call-outs-container">
+  <div class="call-out">
+    <h4>Feature 1</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit consectetur nobis molestias! Explicabo deserunt. Consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam placeat numquam omnis sit consectetur.</p>
+  </div>
+
+  <div class="call-out">
+    <h4>Feature 2</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit consectetur nobis molestias! Explicabo deserunt placeat numquam omnis.</p>
+  </div>
+
+  <div class="call-out">
+    <h4>Feature 3</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit.</p>
+  </div>
+</div>
+
+<!-- fourth example -->
+<div class="fixed-size-container">
+  <div class="fixed-size">1</div>
+  <div class="fixed-size">2</div>
+  <div class="fixed-size">3</div>
+  <div class="fixed-size">4</div>
+  <div class="fixed-size">5</div>
+</div>
+
+<!-- fifth example -->
+<div class="banner">
+  <div class="center-me">Center Things</div>
+</div>
+
+<!-- sixth example -->
+<div class="equal-height-container">
+  <div class="first">
+    <p>The idea is to have this first column define the height of the row, while continuing to have the rows in the second column maintain a vertical division layout. </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quasi similique amet voluptatem molestiae nostrum ab nesciunt blanditiis repellendus quos, sequi sunt, dolorem quis facilis mollitia nemo modi doloribus quo.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
+  </div>
+
+  <div class="second">
+    <div class="second-a">A</div>
+    <div class="second-b">B</div>
+  </div>
+</div>
+
+<div class="transform-example">
+  <div class="box one">linear</div>
+  <div class="box two">ease-in</div>
+  <div class="box three">ease-out</div>
+  <div class="box four">ease-in-out</div>
+  <div class="box five">cubic-bezier from CSS inspector</div>
+</div>
+
+
+</body>
+</html>

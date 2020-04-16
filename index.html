@@ -3,7 +3,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flexbox Example</title>
+<title>Flex Layout Example</title>
+<link href="https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap" rel="stylesheet"> 
 
 <style>
 html, body {
@@ -239,7 +240,7 @@ h2, h3 {
   transition-timing-function: cubic-bezier(.77, 0, .18, 1); To find the best cubic-bezier value for a project, use the element inspector to click on the icon next to the transition-timing-function to view alternatives to try. Copy/paste the cubic-bezier value to the CSS
 */
 
-/* breathing icons */
+/* breathing icon */
 
 .breatheSvg {
 	content: url('Chakra2.svg');
@@ -261,15 +262,83 @@ h2, h3 {
  }
 }
 
+/* Wavy blue listitem divider */
+.makeit-divider {
+	position: relative;
+	overflow: visible;
+	width: 100%;
+}
+
+.makeit-divider::before {
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: "";
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='4'%3E%3Cpath d='M9 2c3 2 6 2 9 0M0 2c3-2 6-2 9 0' stroke='%2368ebca' fill='transparent'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ol.makeit-list {
+	margin-bottom: 10px;
+	-webkit-transition: -webkit-transform .5s;
+	transition: -webkit-transform .5s;
+	transition: transform .5s;
+	transition: transform .5s,-webkit-transform .5s;
+	counter-reset: item;
+	display: block;
+	margin: 0;
+	margin-bottom: 0px;
+	padding: 0;
+	list-style: none;
+	text-align:left;
+}
+
+.makeit-list li {
+	list-style:none;
+	width: 100%;
+	padding-right: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	line-height: 1;
+	white-space: normal;
+	width: 100%;
+	vertical-align: middle;
+	border: none;
+	font-size: 16px;
+	line-height: 1.125;
+	padding-top: 20px;
+	margin-bottom: 0;
+	
+}
+
+/* Auto numerical list items */
+.makeit-list li::before {
+	font-weight: 800;
+	content: counter(item);
+	counter-increment: item;
+	-webkit-box-flex: 0;
+	font-family: 'Corben', cursive;
+	font-size: 34px;
+	color: #ff685d;
+	float: left;
+	height: 60px;
+	white-space:normal;
+	display: block;
+	width: 20%;
+	padding-right: 8px;
+}
 </style>
 
 <body>
 <!-- first example -->
 <div class="input-container">
 
-<div class="breatheSvg">
-
-</div>
+<div class="breatheSvg"></div>
   
   <form action="">
     <div class="form-row">
@@ -277,7 +346,7 @@ h2, h3 {
       <input type="text" id="name">
     </div>
     <div class="form-row">
-      <label for="favColor">Favorite Color:</label>
+      <label for="favColor">Hobby:</label>
       <input type="text" id="favColor">
     </div>
   </form>
@@ -295,7 +364,17 @@ h2, h3 {
 
   <div class="sidebar-one">
     <h3>Sidebar One</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi tenetur sint dignissimos nulla, blanditiis nesciunt.</p>
+    <ol class="makeit-list">
+	    <div class="makeit-divider"></div>
+		<li>Lorem ipsum dolor sit amet</li>
+		<div class="makeit-divider"></div>
+		<li>Consectetur adipisicing elit </li> 
+		<div class="makeit-divider"></div>
+		<li>Voluptatum modi nisi tenetur</li> 
+		<div class="makeit-divider"></div>
+		<li>Blanditiis modi niso nesciunt</li>
+		<div class="makeit-divider"></div>
+	</ol>
   </div>
 
   <div class="sidebar-two">
@@ -333,7 +412,7 @@ h2, h3 {
 
 <!-- fifth example -->
 <div class="banner">
-  <div class="center-me">Center Things</div>
+  <div class="center-me">Center Me Plz</div>
 </div>
 
 <!-- sixth example -->

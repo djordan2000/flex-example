@@ -17,6 +17,24 @@ input {
   font-family: Helvetica, sans-serif;
 }
 
+code {
+	color: #fff;
+	max-width: 100%;
+	overflow-x: auto;
+	vertical-align: middle;
+	border-radius: 5px;
+	white-space: pre;
+	display: inline-block;
+	margin: 0;
+	margin-right: 0px;
+	margin-left: 0px;
+	font: 14px/1.625em "Courier New", Courier, "Liberation Mono", monospace;
+	font-size: 14px;
+	background: teal;
+	padding: 0 0.5em;
+	box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
+}
+
 body {
   background-color: #0A0A2A;
   font-family: Helvetica, sans-serif;
@@ -92,13 +110,6 @@ h2, h3 {
   box-sizing: border-box;
   margin-bottom: 20px;
   flex-basis: 30%;
-}
-
-@media (min-width: 900px) {
-  .call-outs-container {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 
 .call-out:nth-child(1) {background-color: #c0dbe2;}
@@ -229,19 +240,13 @@ h2, h3 {
  
  .five {
  background: teal;
-  transition-timing-function:cubic-bezier(.64,-0.74,0,1);
-  /*To find the best cubic-bezier value for a project, use the element inspector to click on the icon next to the transition-timing-function to view alternatives to try. Copy/paste the cubic-bezier value to the CSS*/
+  transition-timing-function: cubic-bezier(.77, 0, .18, 1); /*To find the best cubic-bezier value for a project, use the element inspector & click on the icon next to the transition-timing-function to view and experiment with graphic alternatives. Copy/paste the cubic-bezier value to the CSS.
+  Alternative:  transition-timing-function:cubic-bezier(.64,-0.74,.32,1.5);
+*/
 }
 
-/*
-  transition-delay: 0;
-  transition-duration: 1s;
-  transition-property: background;
-  transition-timing-function: cubic-bezier(.77, 0, .18, 1); To find the best cubic-bezier value for a project, use the element inspector to click on the icon next to the transition-timing-function to view alternatives to try. Copy/paste the cubic-bezier value to the CSS
-*/
 
 /* breathing icon */
-
 .breatheSvg {
 	content: url('Chakra2.svg');
 	width: 120px;
@@ -332,6 +337,17 @@ ol.makeit-list {
 	width: 20%;
 	padding-right: 8px;
 }
+
+@media (min-width: 900px) {
+  .call-outs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:800px){
+	.column-layout {display:block}
+}
 </style>
 
 <body>
@@ -379,7 +395,7 @@ ol.makeit-list {
 
   <div class="sidebar-two">
     <h3>Sidebar Two</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi tenetur sint dignissimos nulla, blanditiis nesciunt.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi <code>scss</code> sint dignissimos nulla, blanditiis nesciunt.</p>
   </div>
 </div>
 
@@ -412,7 +428,7 @@ ol.makeit-list {
 
 <!-- fifth example -->
 <div class="banner">
-  <div class="center-me">Center Me Plz</div>
+  <div class="center-me">Center Things</div>
 </div>
 
 <!-- sixth example -->

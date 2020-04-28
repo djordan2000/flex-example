@@ -137,6 +137,7 @@ h2, h3 {
   text-align: center;
   font-weight: bold;
   font-size: 60px;
+  font-family: 'Corben', cursive;
   margin-bottom: 20px;
 }
 
@@ -146,10 +147,11 @@ h2, h3 {
   height: 400px;
   max-width: 700px;
   margin: 40px auto 40px auto;
-  background: linear-gradient(40deg, #6F2717,#EE8F40,#EE8F40,#6F2717);
+  background: linear-gradient(40deg, #6F2717,#EE8F40,#6F2717);
   background-size: 500% 200%;
   animation: bannerbg linear infinite 8s;
   animation-direction: alternate;
+  border: inset aliceblue 6px;
 }
 
 @keyframes bannerbg{
@@ -161,7 +163,7 @@ h2, h3 {
 .center-me {
   margin: auto; /*======= margin auto within a flex container is all that's necessary to center an element vertically and horizontally =======*/
   color: #FFF;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 /* sixth example */
@@ -169,6 +171,7 @@ h2, h3 {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
+  border: inset aliceblue;
 }
 
 .first {
@@ -209,6 +212,7 @@ h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+ 
   /* transition-delay can allow for a more naturally transitioning appearance
   transition-delay: .7s;
   */
@@ -216,6 +220,7 @@ h2, h3 {
 
 .transform-example:hover .box {
   width: 600px;
+   border:inset;
 }
 
 .one {
@@ -240,8 +245,8 @@ h2, h3 {
  
  .five {
  background: teal;
-  transition-timing-function: cubic-bezier(.77, 0, .18, 1); /*To find the best cubic-bezier value for a project, use the element inspector & click on the icon next to the transition-timing-function to view and experiment with graphic alternatives. Copy/paste the cubic-bezier value to the CSS.
-  Alternative:  transition-timing-function:cubic-bezier(.64,-0.74,.32,1.5);
+  transition-timing-function: cubic-bezier(0,1.3,1,-0.07); /*To find the best cubic-bezier value for a project, use the element inspector & click on the icon next to the transition-timing-function to view and experiment with graphic alternatives. Copy/paste the cubic-bezier value to the CSS.
+  Alternatives:  transition-timing-function:cubic-bezier(.64,-0.74,.32,1.5); cubic-bezier(.77, 0, .18, 1);
 */
 }
 
@@ -428,7 +433,7 @@ ol.makeit-list {
 
 <!-- fifth example -->
 <div class="banner">
-  <div class="center-me">Center Things</div>
+  <div class="center-me">Easily Center Things</div>
 </div>
 
 <!-- sixth example -->
@@ -451,7 +456,7 @@ ol.makeit-list {
   <div class="box two">ease-in</div>
   <div class="box three">ease-out</div>
   <div class="box four">ease-in-out</div>
-  <div class="box five">cubic-bezier from CSS inspector</div>
+  <div class="box five">cubic-bezier--<br>see CSS inspector</div>
 </div>
 
 

@@ -8,11 +8,23 @@
 <link href="flex-style.css" rel="stylesheet">
 
 <body>
+	<header id="top">
+	<div class="breatheSvg"></div>
+	Flexbox Layout Examples
+	<span>& Other CSS</span>
+	</header>
+	<nav class="primaryNav">
+		<ul>
+			<li><a class="primaryNav-active" href="#top">Home</a></li>
+			<li><a  href="#features">Features</a></li>
+			<li><a  href="#gallery">Components</a></li>
+			<li><a  href="#centering">Centering</a></li>
+			<li><a  href="#multi">Multi</a></li>
+			<li><a  href="#easing">Easing</a></li>
+		</ul>
+	</nav>
 <!-- first example -->
-<div class="input-container">
-
-<div class="breatheSvg"></div>
-  
+<section class="input-container">  
   <form action="">
     <div class="form-row">
       <label for="name">Name:</label>
@@ -23,19 +35,20 @@
       <input type="text" id="favColor">
     </div>
   </form>
-</div>
+</section>
 
+<main>
 <!-- second example -->
 <div class="column-layout">
-  <div class="main-column">
+  <article class="main-column">
     <h2>Main Column</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque. Voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque.</p>
-  </div>
+  </article>
 
-  <div class="sidebar-one">
+  <aside class="sidebar-one">
     <h3>Sidebar One</h3>
     <ol class="makeit-list">
 	    <div class="makeit-divider"></div>
@@ -48,16 +61,18 @@
 		<li>Blanditiis modi niso nesciunt</li>
 		<div class="makeit-divider"></div>
 	</ol>
-  </div>
+  </aside>
 
-  <div class="sidebar-two">
+  <aside class="sidebar-two">
     <h3>Sidebar Two</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi <code>scss</code> sint dignissimos nulla, blanditiis nesciunt.</p>
-  </div>
+  </aside>
+  
 </div>
 
 <!-- third example -->
-<div class="call-outs-container">
+
+<section id="features" class="call-outs-container">
   <div class="call-out">
     <h4>Feature 1</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit consectetur nobis molestias! Explicabo deserunt. Consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam placeat numquam omnis sit consectetur.</p>
@@ -72,10 +87,11 @@
     <h4>Feature 3</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit.</p>
   </div>
-</div>
+</section>
 
+</main>
 <!-- fourth example -->
-<div class="fixed-size-container">
+<div id="gallery" class="fixed-size-container">
   <div class="fixed-size">1</div>
   <div class="fixed-size">2</div>
   <div class="fixed-size">3</div>
@@ -84,12 +100,12 @@
 </div>
 
 <!-- fifth example -->
-<div class="banner">
+<div id="centering" class="banner">
   <div class="center-me">Easily Center Things</div>
 </div>
 
 <!-- sixth example -->
-<div class="equal-height-container">
+<div id="multi" class="equal-height-container">
   <div class="first">
     <p>The idea is to have this first column define the height of the row, while continuing to have the rows in the second column maintain a vertical division layout. </p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
@@ -103,13 +119,30 @@
   </div>
 </div>
 
-<div class="transform-example">
+<div id="easing" class="transform-example">
   <div class="box one">linear</div>
   <div class="box two">ease-in</div>
   <div class="box three">ease-out</div>
   <div class="box four">ease-in-out</div>
   <div class="box five">cubic-bezier--<br>see CSS inspector</div>
 </div>
+
+<div class="upbutt"><a href="#top">^</a><div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+if(document.documentElement.clientWidth>800) {
+	$(document).scroll(function() {
+	  var y = $(this).scrollTop();
+	  if (y > 800) {
+		$('.upbutt').fadeIn();
+	  } else {
+		$('.upbutt').fadeOut();
+	  }
+	});
+}
+</script>
 
 
 </body>

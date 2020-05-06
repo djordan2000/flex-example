@@ -41,20 +41,18 @@ header span{font-weight:700}
 
 .primaryNav ul{
 	list-style:none;
-	display:block;
+	display:flex;
 	margin: 1em 0 -0.7em 0;
 	padding-left:0
 }
 
 .primaryNav li{
-	display:inline-block;
 	margin:0;
 	font-size:1.0625em
 }
 
 .primaryNav a:link,
 .primaryNav a:visited{
-	display:block;
 	padding:5px 15px 5px;
 	background-color:#2d3748;
 	color:#f7fafc;
@@ -471,18 +469,15 @@ h1.desc {color: #fff; text-align:center}
 }
 
 @media screen and (max-width:800px){
-	.primaryNav ul {margin-top: 3em;}
-	
-	.primaryNav li {
+	.breatheSvg {float:none;}
+	.primaryNav ul {
 		display:block;
+	}
+	.primaryNav li {
 		margin: 10px 0;
 	}
 	.column-layout {display:block;}
 	.main-column{border-bottom: 3px ridge;}
 	aside {margin-top:4em;}
 	.item1 {grid-column:1/ span 3;}
-}
-
-@media screen and (max-width:500px){
-	.primaryNav ul {text-align:center;}
 }

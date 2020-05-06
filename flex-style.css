@@ -35,7 +35,10 @@ header{
 	z-index: 5;
 }
 
-header span{font-weight:700}
+header span{
+	font-weight:700;
+	font-size:1.0625em
+}
 
 .primaryNav{background-color:#2d3748}
 
@@ -48,7 +51,6 @@ header span{font-weight:700}
 
 .primaryNav li{
 	margin:0;
-	font-size:1.0625em
 }
 
 .primaryNav a:link,
@@ -476,8 +478,19 @@ h1.desc {color: #fff; text-align:center}
 	.primaryNav li {
 		margin: 10px 0;
 	}
-	.column-layout {display:block;}
-	.main-column{border-bottom: 3px ridge;}
+	.column-layout {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+	
+	.main-column{
+	    order:1;
+		border-right:none; 
+		border-left:none; 
+		border-bottom: 3px ridge;
+	}
+	.sidebar-one {order:2}
+	.sidebar-two {order:3}
 	aside {margin-top:4em;}
 	.item1 {grid-column:1/ span 3;}
 }

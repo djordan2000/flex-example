@@ -11,8 +11,14 @@ body {
   data-scroll-time:4;
 }
 
-h2, h3 {
+p a:link {
+	text-decoration: none;
+	color: orangered;
+}
+
+h1, h2, h3 {
   margin: 0 0 .75em 0;
+  font-family: 'Righteous', cursive;
 }
 
 header{
@@ -20,50 +26,42 @@ header{
 	background-color:#2d3748;
 	padding:15px;
 	color:#f7fafc;
-	font-weight:700;
+	font-weight:400;
 	font-size:1.25em;
 	line-height:.8;
+	position:fixed;
+	width: 100%;
+	top: 0;
+	z-index: 5;
 }
 
-header span{font-weight:400}
+header span{font-weight:700}
 
 .primaryNav{background-color:#2d3748}
 
 .primaryNav ul{
 	list-style:none;
 	display:block;
-	margin:0;
+	margin: 1em 0 -0.7em 0;
 	padding-left:0
 }
 
 .primaryNav li{
 	display:inline-block;
 	margin:0;
-	line-height:24/17;
 	font-size:1.0625em
 }
 
 .primaryNav a:link,
 .primaryNav a:visited{
 	display:block;
-	padding:10px 15px 15px;
+	padding:5px 15px 5px;
 	background-color:#2d3748;
 	color:#f7fafc;
 	text-decoration:none
 }
 
 .primaryNav a:hover{background-color:#1a202c}
-
-.primaryNav a.primaryNav-active{
-	font-weight:700;
-	text-decoration:none;
-	color:#e2e8f0
-}
-
-input {
-  font-size: 14px;
-  font-family: Helvetica, sans-serif;
-}
 
 code {
 	color: #fff;
@@ -76,20 +74,30 @@ code {
 	margin: 0;
 	margin-right: 0px;
 	margin-left: 0px;
-	font: 14px/1.625em "Courier New", Courier, "Liberation Mono", monospace;
-	font-size: 14px;
+	font: 1.625em "Courier New", Courier, "Liberation Mono", monospace;
+	font-size: .92em;
 	background: teal;
 	padding: 0 0.5em;
 	box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
 }
 
+kbd {font-size:1.25em}
+
 /* first example */
 .input-container {
   max-width: 550px;
-  margin: 20px auto 0 auto;
+  margin: 120px auto 0 auto;
   padding: 30px;
   background-color: #FFF;
+  border: 3px ridge orange;
+  box-shadow: 0 4px 80px #000;
 }
+
+input {
+  font-size: .92em;
+  font-family: Helvetica, sans-serif;
+}
+
 /* To initiate a flexbox layout, there must be a container/wrapper with the value of display:flex that will permit children to employ flex values */
 .form-row {
   padding: 10px 0;
@@ -174,7 +182,7 @@ aside {
   line-height: 100px;
   text-align: center;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 4em;
   font-family: 'Corben', cursive;
 }
 
@@ -200,13 +208,17 @@ aside {
 .center-me {
   margin: auto; /*======= margin auto within a flex container is all that's necessary to center an element vertically and horizontally =======*/
   color: #FFF;
-  font-size: 40px;
+  font-size: 3em;
+}
+
+.center-me p {
+	font-size: .8em;
 }
 
 /* sixth example */
 .equal-height-container {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 5em auto;
   display: flex;
   border: inset aliceblue;
 }
@@ -218,7 +230,6 @@ aside {
 }
 
 .second {
-  background-color: yellow;
   flex: 1;
   display: flex;
   flex-direction: column; /* flexbox by default has a flex-direction of row, which forces its child elements into a columned layout within a row. Here we override this by giving the container itself a column quality that will enable child elements to take up rows of horizontal space, sort of like block elements */
@@ -227,11 +238,13 @@ aside {
 .second-a {
   background-color: #c0dbe2;
   flex: 1;
+  padding: 0 1em;
 }
 
 .second-b {
   background-color: #cdf1c3;
   flex: 1;
+  padding: 0 1em;
 }
 
 /* An example of transform properties */
@@ -357,7 +370,7 @@ ol.makeit-list {
 	width: 100%;
 	vertical-align: middle;
 	border: none;
-	font-size: 16px;
+	font-size: 1em;
 	line-height: 1.125;
 	padding-top: 20px;
 	margin-bottom: 0;
@@ -371,7 +384,7 @@ ol.makeit-list {
 	counter-increment: item;
 	-webkit-box-flex: 0;
 	font-family: 'Corben', cursive;
-	font-size: 34px;
+	font-size: 3.5em;
 	color: #ff685d;
 	float: left;
 	height: 60px;
@@ -381,6 +394,75 @@ ol.makeit-list {
 	padding-right: 8px;
 }
 
+
+/*  =================
+	CSS GRID
+	=================  */
+.describe {
+	background-color: #fff;
+	padding: 2% 20%;
+}
+
+.describe-center {
+	margin-top: 5em;
+	margin-bottom: -3%;
+	text-align:center;
+}
+
+h1.desc {color: #fff; text-align:center}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #fff;
+  padding: 10px 20%;
+}
+
+.grid-container > div {
+  background-color: rgb(152, 229, 232);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.item2 {
+  grid-row: 2 / 5;
+}
+
+.upbutt {
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	background-color: teal;
+	text-align: center;
+	position: fixed;
+	right: 2px;
+	top: 50%;
+	transition: transform .2s;
+}
+.upbutt a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 2.7em;
+	line-height: 1.1;
+}
+
+.upbutt:hover {
+	transform: scale(1.3);
+	right: .5em;
+}
+
+
+/*  =================
+	MEDIA QUERIES
+	=================  */
+
 @media (min-width: 900px) {
   .call-outs-container {
     display: flex;
@@ -389,27 +471,18 @@ ol.makeit-list {
 }
 
 @media screen and (max-width:800px){
+	.primaryNav ul {margin-top: 3em;}
+	
+	.primaryNav li {
+		display:block;
+		margin: 10px 0;
+	}
 	.column-layout {display:block;}
 	.main-column{border-bottom: 3px ridge;}
 	aside {margin-top:4em;}
+	.item1 {grid-column:1/ span 3;}
 }
 
 @media screen and (max-width:500px){
 	.primaryNav ul {text-align:center;}
-}
-
-.upbutt {
-	border-radius: 50%;
-	width: 30px;
-	height: 35px;
-	background-color: teal;
-	font-size: 40px;
-	text-align: center;
-	position:fixed;
-	right: 2px;
-	top: 50%;
-}
-.upbutt a {
-	text-decoration:none;
-	color:#fff;
 }

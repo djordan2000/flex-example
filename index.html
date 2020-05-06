@@ -12,17 +12,19 @@
 	<div class="breatheSvg"></div>
 	Flexbox Layout Examples
 	<span>& Other CSS</span>
-	</header>
+
 	<nav class="primaryNav">
 		<ul>
-			<li><a class="primaryNav-active" href="#top">Home</a></li>
+			<li><a class="primaryNav" href="#top">Top</a></li>
 			<li><a  href="#features">Features</a></li>
 			<li><a  href="#gallery">Components</a></li>
 			<li><a  href="#centering">Centering</a></li>
 			<li><a  href="#multi">Multi</a></li>
+			<li><a  href="#grid">Grid</a></li>
 			<li><a  href="#easing">Easing</a></li>
 		</ul>
 	</nav>
+	</header>
 <!-- first example -->
 <section class="input-container">  
   <form action="">
@@ -41,18 +43,18 @@
 <!-- second example -->
 <div class="column-layout">
   <article class="main-column">
-    <h2>Main Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque. Voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam voluptatibus soluta, consequuntur, reiciendis debitis omnis fugiat libero pariatur amet laudantium minima consectetur tenetur. Repudiandae, autem, voluptate modi deleniti sequi voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi earum fugit veniam amet quae sint vitae numquam dolore sunt quod a odio officia voluptate doloribus, at. Cum quasi mollitia eaque.</p>
+    <h2>Flexbox Example</h2>
+    <p>To initiate a flexbox layout, there must be a container/wrapper with the value of <code>display:flex</code> that will permit children to employ flex values. All direct children of the flex container automatically become flex items.<br> 
+	The baseline value to evenly distribute the horizontal space taken up by elements is <kbd>flex 1</kbd>. Flex values specify how much the item will grow relative to the rest of the flexible items. Here, this main column has <code>.main-column {flex: 3;}</code> whereas the asides each have flex: 1<br>
+	The flex container can be given a <code>flex-directon</code> property to set the display direction of its child elements to either <code>column</code> or <code>row</code>. Element order can also be reversed by <code>column-reverse</code> or <code>row-reverse</code></p>
+	<p>For multi-element layouts, such as this main content panel bordered by asides, set the element <code>order</code> properties to the desired numeric order (1,2,3). Since search engine spiders crawl the site left to right, it is better for SEO to have a site's core content of purpose located in the first paragraph, and sidebars are likely to contain only peripheral information.</p>
   </article>
 
   <aside class="sidebar-one">
     <h3>Sidebar One</h3>
     <ol class="makeit-list">
 	    <div class="makeit-divider"></div>
-		<li>Lorem ipsum dolor sit amet</li>
+		<li>CSS for this aside <kbd>.sidebar-one {order:1;}</kbd></li>
 		<div class="makeit-divider"></div>
 		<li>Consectetur adipisicing elit </li> 
 		<div class="makeit-divider"></div>
@@ -65,7 +67,7 @@
 
   <aside class="sidebar-two">
     <h3>Sidebar Two</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum modi nisi <code>scss</code> sint dignissimos nulla, blanditiis nesciunt.</p>
+    <p>CSS for this aside is <code>.sidebar-two {order:3;}</code> The CSS of the Main column is <code>{order:2;}</code></p>
   </aside>
   
 </div>
@@ -75,12 +77,12 @@
 <section id="features" class="call-outs-container">
   <div class="call-out">
     <h4>Feature 1</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit consectetur nobis molestias! Explicabo deserunt. Consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam placeat numquam omnis sit consectetur.</p>
+     <p>The container for these elements has a set max-width of 1400px, and left/right margins of auto. Each of these elements have a <code>flex-basis</code> property of 30% to specify their initial length.</p>
   </div>
 
   <div class="call-out">
     <h4>Feature 2</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit consectetur nobis molestias! Explicabo deserunt placeat numquam omnis.</p>
+	  <p>To control the alignment of child elements, a flex container is given a <code>justify-content</code> property with one of the following values <kbd>space-around, space-between, flex-start, flex-end, center</kbd> -- depending on the layout desired.</p>
   </div>
 
   <div class="call-out">
@@ -100,6 +102,12 @@
 </div>
 
 <!-- fifth example -->
+<div class="describe describe-center">
+<h2>Centering Elements</h2>
+<p>Flexbox centers elements very simply.<br>
+Just give the container for the centered element <code>{ display: flex;}</code> <br> 
+All that's necessary to center an element both vertically and horizontally in a flex container is to give it a margin of auto <code>.center-me {margin: auto;}</code></p>
+</div>
 <div id="centering" class="banner">
   <div class="center-me">Easily Center Things</div>
 </div>
@@ -107,17 +115,37 @@
 <!-- sixth example -->
 <div id="multi" class="equal-height-container">
   <div class="first">
-    <p>The idea is to have this first column define the height of the row, while continuing to have the rows in the second column maintain a vertical division layout. </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quasi similique amet voluptatem molestiae nostrum ab nesciunt blanditiis repellendus quos, sequi sunt, dolorem quis facilis mollitia nemo modi doloribus quo.</p>
+    <p>These columns would each define the height of this single row, while continuing to maintain a matched minimum vertical height to contain content.</p>
+    <p>However in this example, the vertical columns have enough content to fill out the space.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
   </div>
 
   <div class="second">
-    <div class="second-a">A</div>
-    <div class="second-b">B</div>
+    <div class="second-a">A <p>The flexbox container by default has a flex-direction of <kbd>row</kbd>, which forces its child elements into a columned layout within a row. Here we override this by giving the container of these two child elements a column quality with <code>flex-direction: column;</code> </p></div>
+    <div class="second-b">B <p>This enables child elements to take up rows of horizontal space, sort of like block elements</p></div>
   </div>
 </div>
+
+<!-- CSS Grid examples -->
+<h1 id="grid" class="desc">CSS Grid Example</h1>
+<div class="grid-container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+</div>
+<div class="describe">
+<p>Grid's CSS properties apply to both rows and columns, whereas Flexbox focuses primarily on rows, although they can be combined as necessary according to different element requirements. 
+<br> To set a grid layout, a container must first have a display property set to either <code>display: grid;</code> or <code>display: inline-grid;</code>. All direct children of a grid container will automatically become grid items. <br>Vertical lines of grid items are set with <code>grid-column:</code>, and horizontal lines are set by <code>grid-row:</code>.
+</p>
+<p>A grid container has one grid item for each column in each row by default, but grid items can be styled so that they span multiple columns and/or rows by setting its <code>grid-column</code> or <code>grid-row</code> to something like <code>1 / span 3</code> or <code>2 / 4</code>, resulting in the element expanding to span 3 regular columns/rows.</p>
+</div>
+
+<!-- Transform examples -->
 
 <div id="easing" class="transform-example">
   <div class="box one">linear</div>
@@ -131,18 +159,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-if(document.documentElement.clientWidth>800) {
-	$(document).scroll(function() {
-	  var y = $(this).scrollTop();
-	  if (y > 800) {
-		$('.upbutt').fadeIn();
-	  } else {
-		$('.upbutt').fadeOut();
-	  }
-	});
-}
-</script>
+<script src="scripts"></script>
 
 
 </body>

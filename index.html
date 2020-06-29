@@ -8,7 +8,7 @@
 <link href="flex-style.css" rel="stylesheet">
 
 <body>
-   <header >
+    <header >
       <div class="breatheSvg"></div>
       Flexbox Layout Examples
       <span>& Other CSS</span>
@@ -101,6 +101,9 @@
    </div>
    <div id="centering" class="banner">
       <div class="center-me">Easily Center Things</div>
+	  <div class="App_LoaderContainer">
+	    <span class="App_Loader"></span>
+	  </div>
    </div>
    <!-- sixth example -->
    <div id="multi" class="equal-height-container">
@@ -133,8 +136,8 @@
       <div class="item8">8</div>
    </div>
    <div class="describe">
-      <p>Grid's CSS properties apply to both rows and columns, whereas Flexbox focuses primarily on rows, although they can be combined as necessary according to different element requirements. 
-         <br> To set a grid layout, a container must first have a display property set to either <code>display: grid;</code> or <code>display: inline-grid;</code>. All direct children of a grid container will automatically become grid items. <br>Vertical lines of grid items are set with <code>grid-column:</code>, and horizontal lines are set by <code>grid-row:</code>.
+      <p>Whereas Flexbox focuses primarily on rows, CSS Grid properties apply both to rows and columns.  However, Flexbox easily handles a combination of rows and columns as necessary. 
+         <br>To set a grid layout, a container must first have a display property set to either <code>display: grid;</code> or <code>display: inline-grid;</code>. All direct children of a grid container will automatically become grid items. <br>Vertical lines of grid items are set with <code>grid-column:</code>, and horizontal lines are set by <code>grid-row:</code>.
       </p>
       <p>A grid container has one grid item for each column in each row by default, but grid items can be styled so that they span multiple columns and/or rows by setting its <code>grid-column</code> or <code>grid-row</code> to something like <code>1 / span 3</code> or <code>2 / 4</code>, resulting in the element expanding to span 3 regular columns/rows.</p>
    </div>
@@ -149,7 +152,6 @@
    <div class="upbutt">
    <a href="#top">^</a>
    <div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="scripts.js"></script>

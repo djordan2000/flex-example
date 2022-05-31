@@ -1,3 +1,4 @@
+
 * {
 	box-sizing:border-box;
 }
@@ -26,10 +27,28 @@ h1, h2, h3 {
   font-family: 'Righteous', cursive;
 }
 
+h2 {
+	color: transparent;
+	background: #061543;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+}
+
+h2.desc {
+	color: #fff; 
+	text-align:center;
+	font-size: 2em;
+	text-shadow: -5px 5px 0px #00e6e6, 
+				 -10px 10px 0px #01cccc, 
+				 -15px 15px 0px #00bdbd;
+}
+
 header{
 	display:block;
 	background-color:#2d3748;
-	padding:15px;
+	padding: 15px 15px 22px 15px;
 	color:#f7fafc;
 	font-weight:400;
 	font-size:1.25em;
@@ -59,6 +78,10 @@ header span{
 	margin:0;
 }
 
+.primaryNav li:last-child {
+       margin-left: auto;
+}
+
 .primaryNav a:link,
 .primaryNav a:visited{
 	padding:5px 15px 5px;
@@ -68,6 +91,13 @@ header span{
 }
 
 .primaryNav a:hover{background-color:#1a202c}
+
+/* Responsive Mobile icon */
+.primaryNav .icon {
+  display: none;
+}
+
+.spacer {height: 5em}
 
 code {
 	color: #fff;
@@ -88,16 +118,6 @@ code {
 }
 
 kbd {font-size:1.25em}
-
-/* first example */
-.input-container {
-  max-width: 550px;
-  margin: 120px auto 0 auto;
-  padding: 30px;
-  background-color: #FFF;
-  border: 3px ridge orange;
-  box-shadow: 0 4px 80px #000;
-}
 
 input {
   font-size: .92em;
@@ -151,7 +171,7 @@ aside {
   order: 3;
 }
 
-/* third example */
+/* third example: row of boxes containing text */
 .call-outs-container {
   max-width: 1400px;
   margin: 40px auto 0 auto;
@@ -171,7 +191,7 @@ aside {
 /* fourth example */
 .fixed-size-container {
   max-width: 1400px;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 0;
   background-color: #FFF;
   padding: 30px 0;
   display: flex;
@@ -195,6 +215,7 @@ aside {
 /* fifth example. Flexbox centers elements very simply*/
 .banner {
   display: flex; /*======= container for the centered element =======*/
+  flex-direction: column;
   height: 400px;
   max-width: 700px;
   margin: 40px auto 40px auto;
@@ -211,21 +232,12 @@ aside {
 }
 
 
-.center-me {
-  margin: auto; /*======= margin auto within a flex container is all that's necessary to center an element vertically and horizontally =======*/
-  color: #FFF;
-  font-size: 3em;
-}
-
-.center-me p {
-	font-size: .8em;
-}
-
 /* sixth example */
 .equal-height-container {
   max-width: 900px;
   margin: 5em auto;
   display: flex;
+  flex-wrap: wrap;
   border: inset aliceblue;
 }
 
@@ -238,19 +250,20 @@ aside {
 .second {
   flex: 1;
   display: flex;
-  flex-direction: column; /* flexbox by default has a flex-direction of row, which forces its child elements into a columned layout within a row. Here we override this by giving the container itself a column quality that will enable child elements to take up rows of horizontal space, sort of like block elements */
+  flex-direction: column; /* ==== By default, flexbox has a flex-direction of row, which forces its child elements into a columned layout within a row. Here we override this by giving the container itself a column quality that will enable child elements to take up rows of horizontal space, sort of like block elements ==== */
 }
 
-.second-a {
-  background-color: #c0dbe2;
+.second-a,
+.second-b {
   flex: 1;
-  padding: 0 1em;
+  padding: 1em;
 }
 
+.second-a { 
+  background-color: #c0dbe2;
+}
 .second-b {
   background-color: #cdf1c3;
-  flex: 1;
-  padding: 0 1em;
 }
 
 /* An example of transform properties */
@@ -333,7 +346,6 @@ aside {
 .makeit-divider {
 	position: relative;
 	overflow: visible;
-	width: 100%;
 }
 
 .makeit-divider::before {
@@ -400,6 +412,38 @@ ol.makeit-list {
 	padding-right: 8px;
 }
 
+/* Control Buttons */
+
+div.controls {
+	display:flex;
+	justify-content:center;
+    align-items: center;
+	width: 100%;
+}
+.controlbtn {
+  background-color:  #fa6448;
+  margin: 4px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 4px grey;
+  transition: .3s;
+  width:60px;
+  height:60px;
+  line-height:2.1
+}
+.controlbtn.pausebt {
+	transform: rotate(90deg);
+    width:61.5px;
+    box-shadow:2px -2px 4px grey;
+}
+.controlbtn:hover {
+	box-shadow:-1px -1px grey;
+}
+.controlbtn.pausebt:hover {
+	box-shadow: -1px 1px grey;
+}
+
 
 /*  =================
 	CSS GRID
@@ -414,8 +458,6 @@ ol.makeit-list {
 	margin-bottom: -3%;
 	text-align:center;
 }
-
-h1.desc {color: #fff; text-align:center}
 
 .grid-container {
   display: grid;
@@ -433,79 +475,130 @@ h1.desc {color: #fff; text-align:center}
   box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
 }
 
+/* To set different column widths of grid items, the first value tells the item where to start, the second where to end */
 .item1 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-.item2 {
-  grid-row: 2 / 5;
+  grid-column: 1/span 2;
 }
 .item8 {
-  grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column: 2/span 2;
+}
+/* To set row size, the first value tells the item in which row to begin, the second where to end */
+.item2 {
+  grid-row: 2 / 5;
+  grid-column: 1/span 2;
 }
 
-
-.App_LoaderContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    position: relative;
-    top: 60%;
-    left: -50%; 
-   /* width: 100%;
-    height: 100%;*/
+/* "CENTERED"  animation */
+ /*======= Within a flex container, margin: auto is all that's necessary to center an element vertically and horizontally =======*/
+.center-me {
+  display:flex;
+  margin: auto;
+  width: 8em;
+  font: bolder 2.3em 'Open Sans', sans-serif;
+  color: white;
+  justify-content: space-around;
 }
-
-.App_LoaderContainer .App_Loader {
-    color: #eafcff;
-    font-size: 10px;
-	position:absolute;
-    margin: 80px auto;
-    text-indent: -9999em;
-    transform: translateZ(0);
-    animation-delay: -0.16s;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    animation-fill-mode: both;
-    animation: app_load 1.8s infinite ease-in-out;
-        animation-delay: 0s;
+.center-me div {
+  animation: centerme 2s infinite alternate; 
 }
-
-.App_LoaderContainer .App_Loader::before {
-	content: "";
-	position: absolute;
-	top: 0;
-    left: -3.5em;
-    animation-delay: -0.32s;
-	border-radius: 50%;
-	width: 1.5rem;
-	height: 1.5rem;
-	animation-fill-mode: both;
-	animation: app_load 1.8s infinite ease-in-out;
-}
-
-.App_LoaderContainer .App_Loader::after {
-	content: "";
-	position: absolute;
-	top: 0;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    animation-fill-mode: both;
-    animation: app_load 1.8s infinite ease-in-out;
-	border-radius: 50%;
-}
-
-@keyframes app_load {
-	0%, 80%, 100% {
-    box-shadow: 0 2.5em 0 -1.3em;
+@keyframes centerme {
+  5% {
+	  opacity: 0.3; 
+	  color: #ffea00;
 	}
-	40% {
-		box-shadow: 0 2.5em 0 0;
-	}
+  100% {
+	color: #a00; 
+	text-shadow: 1.4px 2px 2.4px #f00, 5px 5px 5px #929292;	
+    }
 }
+div:nth-child(2) {
+  animation-delay: .25s;
+}
+
+div:nth-child(3) {
+  animation-delay: .50s;
+}
+div:nth-child(4) {
+  animation-delay: .75s;
+}
+div:nth-child(5) {
+  animation-delay: 1s;
+}
+div:nth-child(6) {
+  animation-delay: 1.25s;
+}
+div:nth-child(7) {
+  animation-delay: 1.50s;
+}
+div:nth-child(8) {
+  animation-delay: 1.75s;
+}
+
+/* loading animation */
+
+.loading {
+  position: relative;
+  left: 50%;
+  bottom: 10%;
+  width: 9em;
+  height: 9em;
+  margin: -4em 0 0 -4em;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  border: groove 8px #af34af;
+}
+.loading > div {
+  position: absolute;
+  width: 8em;
+  height: 8em;
+  animation: alpha 2.25s linear infinite forwards;
+  background: rgba(231, 76, 60, 0.75);
+}
+.loading > div:nth-child(1) {
+  top: -50%;
+  left: -50%;
+}
+.loading > div:nth-child(2) {
+  top: -50%;
+  right: -50%;
+}
+.loading > div:nth-child(3) {
+  bottom: -50%;
+  right: -50%;
+}
+.loading > div:nth-child(4) {
+  bottom: -50%;
+  left: -50%;
+}
+
+@keyframes alpha {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    background: rgba(231, 76, 60, 0.75);
+  }
+  25% {
+    background: rgba(230, 126, 34, 0.75);
+  }
+  50% {
+    border-radius: 50%;
+    background: rgba(142, 68, 173, 0.75);
+  }
+  75% {
+    background: rgba(41, 128, 185, 0.75);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    background: rgba(231, 76, 60, 0.75);
+  }
+}
+
 
 .upbutt {
 	border-radius: 50%;
@@ -538,18 +631,56 @@ h1.desc {color: #fff; text-align:center}
 @media (min-width: 900px) {
   .call-outs-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 
 @media screen and (max-width:800px){
+
 	.breatheSvg {float:none;}
+	
+	/* Responsive mobile menu */
 	.primaryNav ul {
-		display:block;
+		flex-direction: column;
+		height: 0;
+		margin:0;
 	}
 	.primaryNav li {
-		margin: 10px 0;
+		margin: 8px 0;
 	}
+
+	.primaryNav.responsive {
+		position: relative;
+	}
+
+	.primaryNav ul li {
+		transform:translateX(-100%);
+		transition:.6s;
+    }
+	.primaryNav.open ul {
+	   height: auto;
+	  }
+   .primaryNav.open ul li {
+		float: none;
+    	transform:translateX(0);
+		text-align: left;
+	}
+	.primaryNav ul li:last-child {
+		margin-left:0;		
+	}
+	.primaryNav .icon {
+		float: right;
+		display: block;
+	}
+	.primaryNav.open .icon {
+		position: absolute;
+		right: 14px;
+		top: 112px;
+	}
+
+	main {margin-top:1em;}
+
+/* flex columns and rows */
 	.column-layout {
 		-webkit-flex-direction: column;
 		flex-direction: column;
@@ -564,8 +695,17 @@ h1.desc {color: #fff; text-align:center}
 	.sidebar-one {order:2}
 	.sidebar-two {order:3}
 	aside {margin-top:4em;}
-	.item1 {grid-column:1/ span 3;}
+	
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: auto;
+	  padding: 10px 2%;
+	}
+	.grid-container > div {grid-column:1/ span 3;}
+	
+	.first, .second {flex:100%}
 }
+
 
 @media screen and (max-width:500px){
 	.upbutt {

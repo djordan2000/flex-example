@@ -8,65 +8,73 @@
 <link href="flex-style.css" rel="stylesheet">
 
 <body>
-    <header >
+   <header >
       <div class="breatheSvg"></div>
-      Flexbox Layout Examples
-      <span>& Other CSS</span>
-      <nav class="primaryNav">
+      <span>Flexbox</span> Layout 
+      & Other CSS Examples
+      <nav class="primaryNav" id="navmenu">
          <ul>
-            <li><a class="primaryNav" href="#top">Top</a></li>
+            <li><a  href="#top" class="primaryNav">Top</a></li>
             <li><a  href="#features">Features</a></li>
             <li><a  href="#gallery">Components</a></li>
             <li><a  href="#centering">Centering</a></li>
             <li><a  href="#multi">Multi</a></li>
             <li><a  href="#grid">Grid</a></li>
             <li><a  href="#easing">Easing</a></li>
+			<li class="srch"><label for="search">🔎</label>
+            <input type="text" id="search" placeholder="  sample"></li>
          </ul>
+			 <a href="javascript:void(0);" class="icon" onclick="mobileNav()">
+			  <i class="fa fa-bars"></i>
+		     </a>
       </nav>
+
    </header>
-   <!-- first example -->
-   <section class="input-container">
-      <form action=""><span id="top"></span>
-         <div class="form-row">
-            <label for="name">Name:</label>
-            <input type="text" id="name">
-         </div>
-         <div class="form-row">
-            <label for="favColor">Hobby:</label>
-            <input type="text" id="favColor">
-         </div>
-      </form>
-   </section>
+
    <main>
-      <!-- second example -->
-      <div class="column-layout">
+      <!-- main section -->
+	  <div class="spacer"></div>
+	  <section class="column-layout">
          <article class="main-column">
             <h2>Flexbox Example</h2>
-            <p>To initiate a flexbox layout, there must be a container/wrapper with the value of <code>display:flex</code> that will permit children to employ flex values. All direct children of the flex container automatically become flex items.<br> 
-               The baseline value to evenly distribute the horizontal space taken up by elements is <kbd>flex 1</kbd>. Flex values specify how much the item will grow relative to the rest of the flexible items. Here, this main column has <code>.main-column {flex: 3;}</code> whereas the asides each have flex: 1<br>
-               The flex container can be given a <code>flex-directon</code> property to set the display direction of its child elements to either <code>column</code> or <code>row</code>. Element order can also be reversed by <code>column-reverse</code> or <code>row-reverse</code>
+            <p>To initiate a flexbox layout, there must be a container/wrapper with the value of <code>display:flex</code> that will permit children to employ flex values. All direct children of the flex container automatically become flex items.<br></p> 
+		    <p>By default, flexbox distributes width values on adjacent columns depending on which one has the most content, with adjacent columns distributing the remainder. To resolve this, set the flex container's class to <code>.container > * {width: 100%}</code> if you want all columns to have the same width.</p>
+		    <p>The baseline value to evenly distribute the horizontal space of elements is <kbd>flex 1</kbd>. Flex values specify how much the item will grow relative to the rest of the flexible items. Here, this main column has <code>.main-column {flex: 3;}</code> whereas the asides each have <kbd>flex: 1</kbd></p>
+		    <p>
+		    The flex container can be given a <code>flex-directon</code> property to set the display direction of its child elements to either <code>column</code> or <code>row</code>. Element order can also be reversed by <code>column-reverse</code> or <code>row-reverse</code>
             </p>
-            <p>For multi-element layouts, such as this main content panel bordered by asides, set the element <code>order</code> properties to the desired numeric order (1,2,3). Since search engine spiders crawl the site left to right, it is better for SEO to have a site's core content of purpose located in the first paragraph, and sidebars are likely to contain only peripheral information.</p>
+            <p>For multi-element layouts, such as this main content panel bordered by asides, set the element <code>order</code> properties to the desired numeric order (1,2,3). Since search engine spiders crawl the site left to right and top to bottom, it is better for SEO to have a site's core content of purpose located in the first paragraph, and sidebars are likely to contain only peripheral information; this central panel is actually the first element in the HTML of this section, not the aside.</p>
          </article>
          <aside class="sidebar-one">
             <h3>Sidebar One</h3>
             <ol class="makeit-list">
                <div class="makeit-divider"></div>
-               <li>CSS for this aside <kbd>.sidebar-one {order:1;}</kbd></li>
+                <li> 
+                 <dl>
+                  <dt>CSS for this aside:</dt>
+                  <dd><kbd>.sidebar-one {order:1;}</kbd></dd>
+                 </dl>
+               </li>
                <div class="makeit-divider"></div>
-               <li>Consectetur adipisicing elit </li>
+               <li>Even though this aside appears first on desktop, the main section is first in the HTML code.</li>
                <div class="makeit-divider"></div>
-               <li>Voluptatum modi nisi tenetur</li>
+               <li>This is good for SEO, as webpage content is indexed from the top down.</li>
                <div class="makeit-divider"></div>
-               <li>Blanditiis modi niso nesciunt</li>
+               <li>The main section holds the primary content of a webpage.</li>
+               <div class="makeit-divider"></div>
+			   <li>Side bars are expected to present auxiliary information.</li>
+               <div class="makeit-divider"></div>
+			   <li>Firefox offers better CSS analysis tools for flex and grid.</li>
                <div class="makeit-divider"></div>
             </ol>
          </aside>
          <aside class="sidebar-two">
             <h3>Sidebar Two</h3>
             <p>CSS for this aside is <code>.sidebar-two {order:3;}</code> The CSS of the Main column is <code>{order:2;}</code></p>
+			<p>Once the screen width falls below 800px, these columns become reordered to: <code>main {order:1}</code> <code>.sidebar-one {order:2}</code> <code>.sidebar-two {order:3}</code></p>
          </aside>
-      </div>
+      
+	  </section>
       <!-- third example -->
       <section id="features" class="call-outs-container">
          <div class="call-out">
@@ -79,10 +87,10 @@
          </div>
          <div class="call-out">
             <h4>Feature 3</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam obcaecati vel, placeat numquam omnis sit.</p>
+            <p>For desktop display, the flex container for these three Feature boxes has a declaration of <code>justify-content: space-between;</code> which tells the browser to spread the children evenly across the screen--across screen width for rows, and across document height for columns.</p>
          </div>
       </section>
-   </main>
+  
    <!-- fourth example -->
    <div id="gallery" class="fixed-size-container">
       <div class="fixed-size">1</div>
@@ -90,6 +98,12 @@
       <div class="fixed-size">3</div>
       <div class="fixed-size">4</div>
       <div class="fixed-size">5</div>
+	  <p>Giving these numbered boxes <code>justify-content: space-around;</code> provides built-in margins around them.</p>
+	     <div class="controls">
+		<div class="controlbtn">◼</div>
+		<div class="controlbtn">▶</div>
+		<div class="controlbtn pausebt">⏏</div>   
+	  </div>
    </div>
    <!-- fifth example -->
    <div class="describe describe-center">
@@ -99,18 +113,32 @@
          All that's necessary to center an element both vertically and horizontally in a flex container is to give it a margin of auto <code>.center-me {margin: auto;}</code>
       </p>
    </div>
-   <div id="centering" class="banner">
-      <div class="center-me">Easily Center Things</div>
-	  <div class="App_LoaderContainer">
-	    <span class="App_Loader"></span>
-	  </div>
+   <div id="centering" class="banner">  
+		<div class="center-me">
+			<div>C</div>
+			<div>E</div>
+			<div>N</div>
+			<div>T</div>
+			<div>E</div>
+			<div>R</div>
+			<div>E</div>
+			<div>D</div>	
+		</div>
+	
+		<div class="loading">
+		  <div></div>
+		  <div></div>
+		  <div></div>
+		  <div></div>
+		</div>
+
    </div>
    <!-- sixth example -->
    <div id="multi" class="equal-height-container">
       <div class="first">
-         <p>These columns would each define the height of this single row, while continuing to maintain a matched minimum vertical height to contain content.</p>
-         <p>However in this example, the vertical columns have enough content to fill out the space.</p>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quisquam, veritatis ducimus, vero magnam hic quia pariatur asperiores laudantium quod nobis perspiciatis, expedita quo reprehenderit quasi iusto ullam error reiciendis.</p>
+         <p>Content within these columns would define the height of this single row, while continuing to maintain a matched minimum vertical height.</p>
+		 <p>These columns combine <kbd>flex:wrap</kbd> and <kbd>flex: 100%</kbd> with a media query to tell this row of two adjacent columns to become single columns once a break point below 800px is reached.</p>
+         
       </div>
       <div class="second">
          <div class="second-a">
@@ -119,12 +147,13 @@
          </div>
          <div class="second-b">
             B 
-            <p>This enables child elements to take up rows of horizontal space, sort of like block elements</p>
+			<p>Flex-direction can be used in media queries to change from a row to column at a specific breakpoint. This enables child elements to take up rows of horizontal space, sort of like block elements.</p>
+			<p>Media queries can also be used to change the width of the flex property on different screen sizes. To do so requires adding <code>flex-wrap: wrap;</code> to the flex container.</p>
          </div>
       </div>
    </div>
    <!-- CSS Grid examples -->
-   <h1 id="grid" class="desc">CSS Grid Example</h1>
+   <h2 id="grid" class="desc">CSS Grid Example</h2>
    <div class="grid-container">
       <div class="item1">1</div>
       <div class="item2">2</div>
@@ -142,16 +171,24 @@
       <p>A grid container has one grid item for each column in each row by default, but grid items can be styled so that they span multiple columns and/or rows by setting its <code>grid-column</code> or <code>grid-row</code> to something like <code>1 / span 3</code> or <code>2 / 4</code>, resulting in the element expanding to span 3 regular columns/rows.</p>
    </div>
    <!-- Transform examples -->
-   <div id="easing" class="transform-example">
+   <div class="spacer"></div>
+    <h2 id="easing" class="desc">CSS Transform</h2>
+   <div class="describe ">
+   <p>A variety of animations can be provided with CSS3. Below are some examples of the<code>transform: translate()</code> property.</p>
+   </div>
+   <div class="transform-example">
       <div class="box one">linear</div>
       <div class="box two">ease-in</div>
       <div class="box three">ease-out</div>
       <div class="box four">ease-in-out</div>
       <div class="box five">cubic-bezier--<br>see CSS inspector</div>
    </div>
+   
    <div class="upbutt">
    <a href="#top">^</a>
-   <div>
+   </div>
+
+ </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="scripts.js"></script>
